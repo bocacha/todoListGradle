@@ -13,8 +13,8 @@ on:
   pull_request:
     branches: [ main ]
 
-permissions:
-  contents: read
+#permissions:
+#  contents: read
 
 jobs:
   build:
@@ -27,8 +27,12 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
-        distribution: 'temurin'
+    - name: Change wrapper permissions
+      run: chmod +x ./gradlew
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-      with:
-        arguments: build
+      run: ./gradlew build
+#        distribution: 'temurin'
+#    - name: Build with Gradle
+#      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+#      with:
+#        arguments: build
