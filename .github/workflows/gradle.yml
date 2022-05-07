@@ -33,8 +33,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Run tests
-        run: ./gradlew test
-        Allow failure: true
+      run: ./gradlew test
+      Allow_failure: true
+
 
 #        distribution: 'temurin'
 #    - name: Build with Gradle
