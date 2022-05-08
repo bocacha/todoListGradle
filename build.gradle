@@ -3,8 +3,8 @@ buildscript {
 		maven {
 			url 'https://jalartifactory.jfrog.io/artifactory/Gradle'
 			credentials {
-				username = "martineduardogonzalez@gmail.com"
-				password = "G0nz4l3z"
+				username = "${artifactory_user}"
+				password = "${artifactory_password}"
 			}
 		}
 
@@ -48,8 +48,8 @@ artifactory {
 	publish {
 		repository {
 			repoKey = 'GradleLocal'
-			username = "martineduardogonzalez@gmail.com"
-			password = "G0nz4l3z"
+			username = "${artifactory_user}"
+			password = "${artifactory_password}"
 			maven = true
 
 		}
@@ -57,8 +57,8 @@ artifactory {
 	resolve {
 		repository {
 			repoKey = 'Gradle'
-			username = "martineduardogonzalez@gmail.com"
-			password = "G0nz4l3z"
+			username = "${artifactory_user}"
+			password = "${artifactory_password}"
 			maven = true
 
 		}
