@@ -34,6 +34,7 @@ jobs:
       continue-on-error: true
 
     - name: Cache SonarCloud packages
+      continue-on-error: true
       uses: actions/cache@v1
       with:
             path: ~/.sonar/cache
