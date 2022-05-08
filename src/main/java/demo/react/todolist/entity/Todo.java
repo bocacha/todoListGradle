@@ -24,4 +24,12 @@ public class Todo extends BaseEntity {
     private String content;
     @Column(name = "status", columnDefinition = "bit(1) default 0")
     private boolean status = false;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
