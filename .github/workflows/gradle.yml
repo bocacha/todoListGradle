@@ -8,14 +8,7 @@
 name: Java CI with Gradle
 
 on: push
-#  push:
-#    branches: [ main ]
-#  pull_request:
-#    branches: [ main ]
 
-#permissions:
-#  contents: read
-#add a test job to the workflow, that allow to test fail:
 jobs:
   build:
 
@@ -38,13 +31,9 @@ jobs:
       
     - name: Run tests
       run: ./gradlew test
-      continue-on-error: true
-      #allow_failure: true
-     
+      #continue-on-error: true
 
-
-#        distribution: 'temurin'
-#    - name: Build with Gradle
-#      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-#      with:
-#        arguments: build
+    - name: Build with Gradle
+    -  uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+    -  with:
+    -  arguments: build
