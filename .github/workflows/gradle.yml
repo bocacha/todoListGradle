@@ -51,6 +51,7 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
 
   test:
+
     needs: build
     - name: Run tests
       run: ./gradlew test
