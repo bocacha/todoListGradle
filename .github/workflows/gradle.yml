@@ -50,27 +50,27 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
 
-#  test:
-#    runs-on: ubuntu-latest
-#    needs: build
-#    name: Run tests
-#    run: ./gradlew test
-#    continue-on-error: true
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    name: Run tests
+    run: ./gradlew test
+    continue-on-error: true
     
     
-#  sonar:
-#    needs: test
-#    - name: Cache SonarCloud packages
-#      continue-on-error: true
-#      uses: actions/cache@v1
-#      with:
-#            path: ~/.sonar/cache
-#            key: ${{ runner.os }}-sonar
-#            restore-keys: ${{ runner.os }}-sonar
+  sonar:
+    needs: test
+    - name: Cache SonarCloud packages
+      continue-on-error: true
+      uses: actions/cache@v1
+      with:
+            path: ~/.sonar/cache
+            key: ${{ runner.os }}-sonar
+            restore-keys: ${{ runner.os }}-sonar
 
-#   - name: Build and analyze
-#      env:
-#            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-#            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#      run: ./gradlew build sonarqube --info
+   - name: Build and analyze
+      env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: ./gradlew build sonarqube --info
 
